@@ -3,19 +3,26 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Portfolio Tech | Cybersecurity • AI • Systems</title>
+    <meta name="author" content="Valentine Bouvinet" />
+    <meta name="contact" content="valentine.bouvinet@gmail.com" />
+    <meta
+      name="description"
+      content="Laboratoire personnel de Valentine Bouvinet autour des systemes, reseaux, cybersecurite, IA et automatisation."
+    />
+    <title>Valentine Bouvinet | Cybersecurity &bull; AI &bull; Systems</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Press+Start+2P&family=Space+Grotesk:wght@500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Press+Start+2P&family=Space+Grotesk:wght@500;600;700&family=VT323&display=swap"
       rel="stylesheet"
     />
-    <link rel="preload" as="image" href="assets/eye-transition.gif" />
+    <link rel="preload" as="video" href="assets/opening.MOV" />
     <link rel="preload" as="image" href="assets/image0.jpeg" />
+    <link rel="preload" as="image" href="assets/closing-eye-background.png" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body class="intro-lock">
-    <div class="intro-overlay intro-phase-welcome" id="introOverlay" aria-hidden="true">
+    <div class="intro-overlay intro-phase-welcome" id="introOverlay">
       <section class="intro-scene intro-welcome">
         <h1 class="intro-welcome-word" aria-label="WELCOME">
           <span style="--i: 0">W</span>
@@ -29,9 +36,13 @@
       </section>
       <section class="intro-scene intro-eye">
         <div class="intro-eye-frame">
-          <img src="assets/eye-transition.gif" alt="" />
+          <video id="introEyeVideo" autoplay muted playsinline preload="auto">
+            <source src="assets/opening.MOV" type="video/quicktime" />
+            <source src="assets/opening.MOV" type="video/mp4" />
+          </video>
         </div>
       </section>
+      <button class="intro-skip" id="introSkip" type="button">Skip Intro &rarr;</button>
     </div>
 
     <div class="hud-noise" aria-hidden="true"></div>
@@ -40,17 +51,17 @@
     <div class="site-shell" id="siteShell">
       <header class="site-header" id="top">
         <a class="brand" href="#accueil" aria-label="Aller a l'accueil">
-          <span class="brand-symbol">&gt;_</span>
+          <span class="brand-symbol"><span class="brand-prompt">&gt;_</span><span class="brand-path"> LAB://</span><span class="brand-name">VALENTINE</span></span>
         </a>
 
         <nav class="site-nav" aria-label="Navigation principale">
           <a href="#accueil" data-nav-link>Accueil</a>
-          <a href="#a-propos" data-nav-link>A propos</a>
+          <a href="#whoami" data-nav-link>whoami</a>
           <a href="#stack" data-nav-link>Stack</a>
           <a href="#projets" data-nav-link>Projets</a>
           <a href="#lab" data-nav-link>Lab</a>
-          <a href="#journey" data-nav-link>Journey</a>
-          <a href="#contact" data-nav-link>Contact</a>
+          <a href="#core-system" data-nav-link>Core System</a>
+          <a href="#exit" data-nav-link>Exit</a>
         </nav>
 
         <div class="header-actions">
@@ -64,7 +75,7 @@
               <path d="M5 3a2 2 0 1 1 0 4 2 2 0 0 1 0-4Zm-1 6h2v11H4V9Zm5 0h2v1.58c.42-.8 1.45-1.58 2.98-1.58C17.3 9 19 10.82 19 14.05V20h-2v-5.44c0-1.72-.71-2.66-2.11-2.66-1.51 0-2.39 1.02-2.39 2.66V20h-2V9Z"></path>
             </svg>
           </a>
-          <a class="icon-btn" href="mailto:hello@portfolio.dev" aria-label="Mail">
+          <a class="icon-btn" href="mailto:valentine.bouvinet@gmail.com" aria-label="Mail">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M3 6h18v12H3V6Zm1.82 1.5L12 12.77 19.18 7.5H4.82Zm14.36 9H4.82V8.87L12 14.1l7.18-5.23v7.63Z"></path>
             </svg>
@@ -84,7 +95,7 @@
         <section class="section hero" id="accueil">
           <div class="hero-grid">
             <div class="hero-copy">
-              <p class="kicker">TECH • SECURITY • AI</p>
+              <p class="kicker">TECH &bull; SECURITY &bull; AI</p>
               <h1>
                 BUILDING SECURE
                 <span>&amp; INTELLIGENT SYSTEMS</span>
@@ -94,7 +105,7 @@
                 infrastructure, securite, IA et automatisation a travers des projets, des labs et une progression technique continue.
               </p>
               <div class="cta-row">
-                <a class="btn btn-primary" href="#a-propos">Decouvrir mon univers</a>
+                <a class="btn btn-primary" href="#whoami">Decouvrir mon univers</a>
                 <a class="btn btn-ghost" href="#projets">Voir mes projets</a>
               </div>
 
@@ -107,7 +118,7 @@
 
             <aside class="hero-visual-wrap" aria-label="Illustration pixel">
               <figure class="hero-visual">
-                <img src="assets/image0.jpeg" alt="Scene pixel cyber en haut a droite" />
+                <img class="hero-pixel-image" src="assets/image0.jpeg" alt="Scene pixel cyber en haut a droite" />
                 <div class="pixel-field" id="pixelField" aria-hidden="true"></div>
               </figure>
               <div class="hero-tags">
@@ -119,20 +130,33 @@
           </div>
         </section>
 
-        <section class="section" id="a-propos">
+        <section class="section" id="whoami">
           <div class="section-title">
-            <p>A PROPOS</p>
+            <p>WHOAMI</p>
             <h2>Hybride cyber + IA + infrastructure</h2>
           </div>
           <div class="about-grid">
             <article class="panel terminal-panel">
               <p>
-                En reconversion vers les metiers de la tech, je construis progressivement un profil hybride melant cybersecurite,
-                infrastructure, intelligence artificielle et automatisation.
+                Mon parcours n'a jamais ete lineaire, et c'est probablement ma plus grande force.
               </p>
               <p>
-                Curieuse et passionnee par les systemes complexes, j'aime comprendre le fonctionnement des reseaux, explorer les
-                environnements techniques et apprendre en construisant.
+                J'ai evolue dans des univers tres differents : entrepreneuriat, e-commerce, immobilier, relation client et gestion
+                d'activite.
+              </p>
+              <p>
+                Chaque experience m'a appris a resoudre des problemes, m'adapter rapidement et comprendre les besoins reels des
+                utilisateurs.
+              </p>
+              <p>
+                Aujourd'hui, je mets ces competences au service d'un domaine qui me passionne : les systemes, les reseaux, la
+                cybersecurite, l'IA et l'automatisation.
+              </p>
+              <p>
+                La technique permet de construire des solutions. L'experience permet de comprendre pourquoi elles sont utiles.
+              </p>
+              <p>
+                C'est a l'intersection des deux que je souhaite evoluer.
               </p>
             </article>
             <article class="panel goals-panel">
@@ -269,78 +293,130 @@
           </div>
         </section>
 
-        <section class="section journey" id="journey">
-          <div class="journey-head">
-            <div>
-              <p class="journey-kicker">MON PARCOURS TECH</p>
-              <h2>Un chemin d'apprentissage continu.</h2>
-            </div>
-            <a class="journey-link" href="#top">Voir details</a>
+        <section class="section core-system" id="core-system">
+          <div class="section-title">
+            <p>CORE SYSTEM</p>
+            <h2>Technical Identity Matrix</h2>
           </div>
 
-          <div class="journey-track">
-            <article class="journey-step s-violet">
-              <div class="step-icon">▱</div>
-              <h3>2025</h3>
-              <p>Decouverte de la tech et des systemes</p>
-            </article>
-            <article class="journey-step s-blue">
-              <div class="step-icon">◎</div>
-              <h3>Reseaux</h3>
-              <p>Bases TCP/IP, VLAN, routage, Wi-Fi</p>
-            </article>
-            <article class="journey-step s-blue">
-              <div class="step-icon">&gt;_</div>
-              <h3>Systemes</h3>
-              <p>Linux, Windows Server, AD, virtualisation</p>
-            </article>
-            <article class="journey-step s-pink">
-              <div class="step-icon">⛨</div>
-              <h3>Cybersecurity</h3>
-              <p>Kali Linux, analyse reseau, TryHackMe labs</p>
-            </article>
-            <article class="journey-step s-green">
-              <div class="step-icon">Py</div>
-              <h3>Python</h3>
-              <p>Scripting, automatisation, outils CLI</p>
-            </article>
-            <article class="journey-step s-green">
-              <div class="step-icon">AI</div>
-              <h3>AI &amp; Automation</h3>
-              <p>IA generative, prompt engineering, workflows</p>
-            </article>
-            <article class="journey-step s-yellow">
-              <div class="step-icon">↗</div>
-              <h3>Futur</h3>
-              <p>Cybersecurity + AI specialization</p>
-            </article>
+          <article class="terminal core-terminal" data-reveal style="--reveal-delay: 60ms">
+            <p class="terminal-line command">&gt; scan_profile</p>
+            <p class="terminal-line output">[OK] Scientific Foundation</p>
+            <p class="terminal-line output">[OK] Hardware &amp; Systems</p>
+            <p class="terminal-line output">[OK] Networks &amp; Infrastructure</p>
+            <p class="terminal-line output">[OK] Cybersecurity</p>
+            <p class="terminal-line output">[OK] Artificial Intelligence</p>
+            <p class="terminal-line output">Status: Learning. Building. Securing. Evolving.</p>
+          </article>
+
+          <div class="core-grid-wrap" data-reveal style="--reveal-delay: 140ms">
+            <div class="core-links" aria-hidden="true">
+              <span class="core-link core-link-top"></span>
+              <span class="core-link core-link-left"></span>
+              <span class="core-link core-link-right"></span>
+              <span class="core-link core-link-down-left"></span>
+              <span class="core-link core-link-down-right"></span>
+            </div>
+
+            <div class="core-grid">
+              <article class="core-card core-card-1" data-reveal style="--reveal-delay: 180ms">
+                <div class="core-card-head">
+                  <span class="core-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <circle cx="12" cy="12" r="1.8"></circle>
+                      <ellipse cx="12" cy="12" rx="8.2" ry="3.2"></ellipse>
+                      <ellipse cx="12" cy="12" rx="8.2" ry="3.2" transform="rotate(60 12 12)"></ellipse>
+                      <ellipse cx="12" cy="12" rx="8.2" ry="3.2" transform="rotate(-60 12 12)"></ellipse>
+                    </svg>
+                  </span>
+                  <h3>Scientific Foundation</h3>
+                </div>
+                <p>Analytical thinking, scientific methodology, problem solving, structured reasoning.</p>
+              </article>
+
+              <article class="core-card core-card-2" data-reveal style="--reveal-delay: 220ms">
+                <div class="core-card-head">
+                  <span class="core-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <rect x="3.5" y="5" width="17" height="11" rx="1.8"></rect>
+                      <path d="M9 19h6"></path>
+                      <path d="M12 16v3"></path>
+                    </svg>
+                  </span>
+                  <h3>Hardware &amp; Systems</h3>
+                </div>
+                <p>PC assembly, hardware configuration, operating systems, troubleshooting.</p>
+              </article>
+
+              <article class="core-card core-card-3" data-reveal style="--reveal-delay: 260ms">
+                <div class="core-card-head">
+                  <span class="core-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <circle cx="6" cy="12" r="2"></circle>
+                      <circle cx="18" cy="7" r="2"></circle>
+                      <circle cx="18" cy="17" r="2"></circle>
+                      <path d="M8 12h8"></path>
+                      <path d="M16.6 8.4 8 11"></path>
+                      <path d="M16.6 15.6 8 13"></path>
+                    </svg>
+                  </span>
+                  <h3>Networks &amp; Infrastructure</h3>
+                </div>
+                <p>TCP/IP, routing, VLANs, Linux, virtualization, Active Directory.</p>
+              </article>
+
+              <article class="core-card core-card-4" data-reveal style="--reveal-delay: 300ms">
+                <div class="core-card-head">
+                  <span class="core-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M12 3.2c2.1 1.9 4.5 2.8 7.2 2.8v5.2c0 4.8-2.8 7.6-7.2 9.6-4.4-2-7.2-4.8-7.2-9.6V6c2.7 0 5.1-.9 7.2-2.8Z"></path>
+                      <path d="m9.2 12.3 1.9 1.9 3.7-3.8"></path>
+                    </svg>
+                  </span>
+                  <h3>Cybersecurity</h3>
+                </div>
+                <p>Network analysis, Wireshark, Kali Linux, security fundamentals, labs.</p>
+              </article>
+
+              <article class="core-card core-card-5" data-reveal style="--reveal-delay: 340ms">
+                <div class="core-card-head">
+                  <span class="core-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <circle cx="8" cy="8" r="2"></circle>
+                      <circle cx="16" cy="8" r="2"></circle>
+                      <circle cx="7" cy="15.5" r="2"></circle>
+                      <circle cx="17" cy="15.5" r="2"></circle>
+                      <path d="M10 8h4"></path>
+                      <path d="m9.5 9.7-1.3 3.8"></path>
+                      <path d="m14.5 9.7 1.3 3.8"></path>
+                      <path d="M9 15.5h6"></path>
+                    </svg>
+                  </span>
+                  <h3>Artificial Intelligence</h3>
+                </div>
+                <p>AI tools, prompt engineering, AI workflows, automation, emerging technologies.</p>
+              </article>
+            </div>
           </div>
         </section>
 
-        <section class="section contact" id="contact">
-          <div class="section-title">
-            <p>CONTACT</p>
-            <h2>When you stare into the system, the system learns you.</h2>
-          </div>
-          <div class="contact-grid">
-            <article class="terminal final-terminal">
-              <p class="terminal-line command">&gt; session_status</p>
-              <p class="terminal-line output">CONNECTED</p>
-              <p class="terminal-line command">&gt; next_objective</p>
-              <p class="terminal-line output">Build the future.</p>
-            </article>
-            <article class="panel contact-actions">
-              <a class="btn btn-primary" href="mailto:hello@portfolio.dev">Envoyer un message</a>
-              <a class="btn btn-ghost" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
-              <a class="btn btn-ghost" href="https://linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
-            </article>
+        <section class="section exit" id="exit">
+          <div class="closing-scene" data-reveal>
+            <div class="closing-copy">
+              <p class="closing-quote">
+                When you stare into the system,<br />
+                the system learns you.
+              </p>
+              <div class="closing-terminal" aria-label="session ended">
+                <span class="closing-prompt">&gt;</span>
+                <span>session ended</span><span class="closing-cursor">_</span>
+              </div>
+            </div>
+
+            <p class="closing-footer">Cybersecurity &bull; Systems &bull; AI &bull; Automation</p>
           </div>
         </section>
       </main>
-
-      <footer class="site-footer">
-        <p>Cybersecurity • Systems • AI • Automation</p>
-      </footer>
     </div>
 
     <script src="script.js"></script>
