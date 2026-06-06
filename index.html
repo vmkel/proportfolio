@@ -17,6 +17,7 @@
       rel="stylesheet"
     />
     <link rel="preload" as="video" href="assets/opening.MOV" />
+    <link rel="preload" as="video" href="src/assets/intro-mobile.mov" />
     <link rel="preload" as="image" href="assets/image0.jpeg" />
     <link rel="preload" as="image" href="assets/closing-eye-background.png" />
     <link rel="stylesheet" href="styles.css" />
@@ -37,8 +38,10 @@
       <section class="intro-scene intro-eye">
         <div class="intro-eye-frame">
           <video id="introEyeVideo" autoplay muted playsinline preload="auto">
-            <source src="assets/opening.MOV" type="video/quicktime" />
-            <source src="assets/opening.MOV" type="video/mp4" />
+            <source src="src/assets/intro-mobile.mov" type="video/quicktime" media="(max-width: 767px)" />
+            <source src="src/assets/intro-mobile.mov" type="video/mp4" media="(max-width: 767px)" />
+            <source src="assets/opening.MOV" type="video/quicktime" media="(min-width: 768px)" />
+            <source src="assets/opening.MOV" type="video/mp4" media="(min-width: 768px)" />
           </video>
         </div>
       </section>

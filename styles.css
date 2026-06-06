@@ -223,6 +223,13 @@ body.intro-lock {
   filter: saturate(1.14) contrast(1.16) brightness(0.82);
 }
 
+@media (max-width: 767px) {
+  .intro-eye-frame video {
+    object-fit: contain;
+    background: #01030a;
+  }
+}
+
 .hud-noise,
 .hud-scanlines {
   position: fixed;
